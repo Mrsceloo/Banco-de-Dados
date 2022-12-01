@@ -1,7 +1,6 @@
-Desenvolva os códigos SQLs a partir dos questionamentos abaixo:
 
 1- Organizar os clientes em ordem alfabética:
-  SELECT (NOME)
+  SELECT NOME
   FROM DBO.CLIENTES
   ORDER BY NOME ASC;
   
@@ -11,7 +10,7 @@ Desenvolva os códigos SQLs a partir dos questionamentos abaixo:
   FROM pessoa 
 
 3- Quantas formas de pagamento distintas existem:
-  SELECT COUNT(DISTINCT DESCRICAO)
+  SELECT COUNT DISTINCT DESCRICAO
   FROM PLANOS
 
 4- Todos os Clientes entre "Armando Silveira Bravo" e "Murilo Carvalheiro Alfradique":
@@ -19,7 +18,7 @@ Desenvolva os códigos SQLs a partir dos questionamentos abaixo:
   WHERE Nome BETWEEN 'Armando Silveira Bravo' AND 'Murilo Carvalheiro Alfradique'
   ORDER BY Nome;
 
-5- Todos os alugueis que NÃO assinaram o Plano HD (1)
+5- Todos os alugueis que NÃO assinaram o Plano HD (1):
   SELECT * FROM ALUGUEL
   WHERE cod_produto NOT IN ('1');
 
@@ -27,7 +26,25 @@ Desenvolva os códigos SQLs a partir dos questionamentos abaixo:
   SELECT * FROM Aluguel
   WHERE Planos='Full HD +4' 
   AND forma_pagamento='Cartão de Crédito';
+
+7- Quantos clientes assinaram o Plano HD:
+  SELECT COUNT(*)
+  FROM DBO.CLIENTES 
+  WHERE ID_PLANO = 1 
   
+8- Quantos tipos distintos de funcionários existem:
+  SELECT COUNT DISTINCT FUNCIONARIOS
+  FROM TIPO
+  
+9- Salário dos funcionários em ordem crescente:
+  SELECT SALARIO
+  FROM FUNCIONARIO
+  ORDER BY SALARIO ASC;
+  
+10- Qual o ID da forma de pagamento "Cartão de crédito":
+  SELECT ID
+  FROM FORMA_PAGAMENTO
+  WHERE DESCRICAO = 'Cartão de crédito'
   
 
 
@@ -42,19 +59,3 @@ Desenvolva os códigos SQLs a partir dos questionamentos abaixo:
 
 
 
-Visualizar todos os dados e colunas de cada uma das tabelas;
-
-SELECT 
-
-
-Contar quantos registros tem em cada tabela;
-Informar quantos valores distintos existem para a tabela produtos na coluna preço;
-Selecionar quais valores distintos existem para a tabela produtos na coluna preço;
-Informar quantos valores distintos existem para a tabela pet na coluna porte;
-Selecionar quais valores distintos existem para a tabela pet na coluna porte;
-Selecionar quais pets não tem um prontuário;
-Verificar quantos funcionários são veterinários e quantos são atendentes;
-Verificar qual o id e descrição da forma de pagamento pix;
-Listar os 5 produtos de maior valor;
-Listar os 5 produtos de menor valor;
-Listar os funcionários ordenados pelo nome;
